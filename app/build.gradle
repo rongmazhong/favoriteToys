@@ -10,9 +10,28 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    //签名配置
+    signingConfigs {
+        // 打包发布签名
+        config {
+            keyAlias '###'
+            keyPassword '******'
+            storeFile file('../###.jks')
+            storePassword '******'
+        }
+        //debug {
+        //    keyAlias 'app'
+        //    keyPassword 'appsme'
+        //    storeFile file('D:\\SME\\smecloud\\Android签名文件\\smeyunAppv1.0.jks')
+        //    storePassword 'appsme'
+        //}
+    }
     buildTypes {
         release {
+            //代码混淆设置 true为混淆
             minifyEnabled false
+            //apk签名打包
+            //signingConfigs signingConfigs.config
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
